@@ -40,7 +40,7 @@ Application URL: http://13.229.112.119.xip.io
 
 10. Continue in grader ternimal, run `chmod 700 .ssh` and `chmod 644 .ssh/authorized_keys` to change read write acess.
 
-### Change ssh port and disable passowrd login and ssh login for root user
+### Change ssh port, disable passowrd login and ssh login for root user
 
 11. Run `sudo nano /etc/ssh/sshd_config`
 
@@ -55,3 +55,16 @@ Application URL: http://13.229.112.119.xip.io
 17. Goto Amazon Light Sail Instance page and then Networking, change port range allowed to 2200 and delete 22
 
 18. Restart the ternimal and ssh in via `ssh grader@13.229.112.119 -p 2200 -i ~/.ssh/udacity`
+
+### Configure the Uncomplicated Firewall (UFW)
+
+19. Run commands :
+
+```
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow 2222/tcp
+sudo ufw allow www
+sudo ufw enable
+```
