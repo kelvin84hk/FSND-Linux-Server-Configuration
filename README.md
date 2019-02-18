@@ -183,6 +183,6 @@ application.secret_key = 'super_secret_key'
 ```
 57. run `cd /var/www/catalog/catalog/` and then run `python database_setup.py`
 
-57 run `sudo service apache2 restart` to restart Apache.
+58 run `sudo service apache2 restart` to restart Apache.
 
-58 Visit the site at http://13.229.112.119.xip.io/
+59 Visit the site at http://13.229.112.119.xip.io/
