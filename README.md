@@ -2,7 +2,7 @@
 
 ## Project Details:
 
-This project will take a baseline installation of a Linux server and prepare it to host web applications. It will secure the server from a number of attack vectors, install and configure a database server, and deploy one of the existing web applications onto it.
+This project will take a baseline installation of a Linux server and prepare it to host web applications. It will secure the server from a number of attack vectors, install and configure a database server, and deploy the Catalog web application in previous project onto it.
 
 ## Instance Created:
 
@@ -38,7 +38,7 @@ Application URL: http://13.229.112.119.xip.io
 
 9. In the new ternimal, run `cat .ssh/udacity.pub` and copy paste the contnet to the grader ternimal. Then save and exit.
 
-10. Continue in grader ternimal, run `chmod 700 .ssh` and `chmod 644 .ssh/authorized_keys` to change read write acess.
+10. Continue in grader ternimal, run `chmod 700 .ssh` and `chmod 644 .ssh/authorized_keys` to change access rights.
 
 ### Change ssh port, disable passowrd login and ssh login for root user
 
@@ -88,5 +88,31 @@ sudo ufw enable
 25. Run `pip install Flask` to install Flask
 
 26. Run `sudo pip install httplib2 oauth2client sqlalchemy psycopg2 sqlalchemy_utils requests` to install other dependencies
+
+### Install and configure PostgreSQL
+
+27. Run `sudo apt-get install libpq-dev python-dev`
+
+28. Run `sudo apt-get install postgresql postgresql-contrib`
+
+29. Run `sudo su - postgres`
+
+30. Run `psql`
+
+31. Run `CREATE USER catalog WITH PASSWORD 'catalog';`
+
+32. Run `ALTER USER catalog CREATEDB;`
+
+33. Run `CREATE DATABASE catalog WITH OWNER catalog;`
+
+34. Run `\c catalog`
+
+35. Run `REVOKE ALL ON SCHEMA public FROM public;`
+
+36. Run `GRANT ALL ON SCHEMA public TO catalog;`
+
+37. Run `\q`
+
+38. Run `exit`
 
 
