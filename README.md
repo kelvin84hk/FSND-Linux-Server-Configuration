@@ -147,7 +147,7 @@ sudo ufw enable
 
 52. Go back to grader terminal and run `sudo nano /etc/apache2/sites-available/catalog.conf`
 
-53. Copy paste teh code :
+53. Copy paste code below. Then save and exit.
 
 ```
 <VirtualHost *:80>
