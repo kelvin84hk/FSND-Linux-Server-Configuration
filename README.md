@@ -115,4 +115,26 @@ sudo ufw enable
 
 38. Run `exit`
 
+#### Deploy the Catalog App
 
+39. Run `cd /var/www/`
+
+40. Run `sudo mkdir catalog`
+
+41. Run `sudo chown -R grader:grader catalog`
+
+42. In the Catalog App folder of the local comuputer, change `server.py` to `__init__.py`
+
+43. Open `__init__.py` and change the value of `google_client_secrets_path` to `'/var/www/catalog/catalog/client_secrets.json'`
+
+44. Change argument of `create_engine` line to `'postgresql://catalog:catalog@localhost/catalog'`. Then save and exit
+
+45. Open `database_setup.py` and change argument of `create_engine` line to `'postgresql://catalog:catalog@localhost/catalog'`. Then save and exit
+
+46. Goto console.developers.google.com. In Oauth consent screen of the Crudentials, add `xip.io` under authorised domains. Then add `http://13.229.112.119.xip.io:80` in Authorised JavaScript origins and `http://13.229.112.119.xip.io:80/catalog` in Authorised redirect URIs. Then download json to replace the `client_secrets.json` file.
+
+47. Download and install FileZilla Client from https://filezilla-project.org/download.php
+
+48. Open FileZilla then goto Edit -> Settings -> SFTP and click Add key file to add the private key (udacity in /.ssh) generated before
+
+49. 
