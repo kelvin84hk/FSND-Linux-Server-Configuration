@@ -52,7 +52,7 @@ Application URL: http://13.229.112.119.xip.io
 
 16. Save and exit. Then run `sudo service ssh restart`
 
-17. Goto Amazon Light Sail Instance page and then Networking, change port range allowed to 2200 and delete 22
+17. Goto Amazon Light Sail Instance page and then Networking, change port range allowed to 2200 and delete 22 under Firewall
 
 18. Restart the ternimal and ssh in via `ssh grader@13.229.112.119 -p 2200 -i ~/.ssh/udacity`
 
@@ -68,3 +68,25 @@ sudo ufw allow 123/udp
 sudo ufw allow 80/tcp
 sudo ufw enable
 ```
+
+### Install Apache
+
+20. Run `sudo apt-get install apache2`
+
+### Install mod_wsgi
+
+21. Run 'sudo apt-get install libapache2-mod-wsgi python-dev'
+
+22. Run `sudo a2enmod wsgi` to enable mod_wsgi
+
+23. Run `sudo service apache2 start` to start the web server
+
+### Install Flask and other dependencies
+
+24. Run `sudo apt-get install python-pip` to install pip
+
+25. Run `pip install Flask` to install Flask
+
+26. Run `sudo pip install httplib2 oauth2client sqlalchemy psycopg2 sqlalchemy_utils requests` to install other dependencies
+
+
