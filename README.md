@@ -137,4 +137,51 @@ sudo ufw enable
 
 48. Open FileZilla then goto Edit -> Settings -> SFTP and click Add key file to add the private key (udacity in /.ssh) generated before
 
-49. 
+49. Then fill Host: sftp://13.229.112.119 , Username: grader, Port: 2200 and click `Quickconnect` to connect to the server
+
+50. In Local site goto the path of the Catalog folder and in Remote site, type `/var/www/catalog/`
+
+51. Upload the local Catalog folder to remote site. 
+    
+     ![alt text](https://github.com/kelvin84hk/FSND-Linux-Server-Configuration/blob/master/filezilla.jpg)
+
+52. Go back to grader terminal and run `sudo nano /etc/apache2/sites-available/catalog.conf`
+
+53. Copy paste teh code :
+
+```
+<VirtualHost *:80>
+		ServerName 13.229.112.119
+		WSGIScriptAlias / /var/www/catalog/catalog.wsgi
+		<Directory /var/www/catalog/catalog/>
+			Order allow,deny
+			Allow from all
+		</Directory>
+		Alias /static /var/www/catalog/catalog/static
+		<Directory /var/www/catalog/catalog/static/>
+			Order allow,deny
+			Allow from all
+		</Directory>
+		
+</VirtualHost>
+```
+
+54. Run `sudo a2ensite catalog`
+
+55. Run `cd /var/www/catalog/`
+
+56. Run `sudo nano catalog.wsgi`. Copy paste code below and then save and exit.
+
+```
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0,"/var/www/catalog/")
+
+from catalog import app as application
+application.secret_key = 'super_secret_key'
+```
+
+57 run `sudo service apache2 restart` to restart Apache
+
+58 Visit the site at http://13.229.112.119.xip.io/
