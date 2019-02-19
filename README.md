@@ -186,3 +186,13 @@ application.secret_key = 'super_secret_key'
 58 run `sudo service apache2 restart` to restart Apache.
 
 59 Visit the site at http://13.229.112.119.xip.io/
+
+### References:
+
+How To Deploy a Flask Application on an Ubuntu VPS :
+
+https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+
+How To Install and Use PostgreSQL on Ubuntu 16.04 :
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04
